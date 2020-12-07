@@ -10,11 +10,10 @@ import com.pax.eagle.auth.EagleApi;
 
 
 public class ApiDemo {
-    static private final String PRODUCT_NAME = "e3c5f41fb6084c26ab23138c320a9f99";
-
     static void authorize(Activity activity) {
+        String productId = LicenseManager.getInstance().getLicenseProductId();
         IAuth iAuth = EagleApi.getInstance().getAuth(activity);
-        iAuth.authorize(PRODUCT_NAME, new OnAuthListener() {
+        iAuth.authorize(productId, new OnAuthListener() {
             @Override
             public void onSuccess(String productId, String deviceId) {
                 activity.runOnUiThread(new Runnable() {
@@ -49,8 +48,9 @@ public class ApiDemo {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                String productId = LicenseManager.getInstance().getLicenseProductId();
                 IAuth eagleApi = EagleApi.getInstance().getAuth(activity);
-                boolean result = eagleApi.isAuthorized(PRODUCT_NAME);
+                boolean result = eagleApi.isAuthorized(productId);
 
                 activity.runOnUiThread(new Runnable() {
                     @Override

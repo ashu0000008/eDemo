@@ -1,7 +1,6 @@
 package com.pax.eagle.demo;
 
 import android.content.Context;
-import android.text.TextUtils;
 
 import java.io.InputStream;
 
@@ -23,11 +22,7 @@ public class LicenseReader {
     }
 
     static byte[] getFromServer() {
-        String name = LicenseManager.getInstance().getCurrentLicense();
-        if (TextUtils.isEmpty(name)) {
-            return null;
-        }
-        String content = getLicenseContent(name);
+        String content = LicenseManager.getInstance().getCurrentLicenseContent();
         return content.getBytes();
     }
 
