@@ -14,6 +14,7 @@ import java.util.List;
 
 public class LicenseListActivity extends AppCompatActivity {
 
+    private RecyclerView recyclerView;
     private LicenseFileAdapter adapter;
     private final List<String> mData = new ArrayList<>();
 
@@ -26,7 +27,7 @@ public class LicenseListActivity extends AppCompatActivity {
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_license_recycle_list);
-        RecyclerView recyclerView = findViewById(R.id.list);
+        recyclerView = findViewById(R.id.list);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         adapter = new LicenseFileAdapter(this, R.layout.item_license_file, mData);
@@ -40,7 +41,8 @@ public class LicenseListActivity extends AppCompatActivity {
             LicenseListActivity.this.runOnUiThread(() -> {
                 mData.clear();
                 mData.addAll(data);
-                adapter.notifyDataSetChanged();
+                adapter = new LicenseFileAdapter(this, R.layout.item_license_file, mData);
+                recyclerView.setAdapter(adapter);
             });
         }).start();
     }
