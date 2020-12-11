@@ -11,7 +11,7 @@ import okhttp3.Response;
 public class LicenseReader {
     static byte[] getLicense(Context context) {
         try (InputStream inputStream = context.getApplicationContext().getAssets()
-                .open("Untitled attachment 00004.dat")) {
+                .open("peter1210_Android_UTC20201210072202.license")) {
             int length = inputStream.available();
             byte[] buffer = new byte[length];
             inputStream.read(buffer);

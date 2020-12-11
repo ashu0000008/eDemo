@@ -40,7 +40,9 @@ public class LicenseListActivity extends AppCompatActivity {
             List<String> data = LicenseManager.getInstance().getList();
             LicenseListActivity.this.runOnUiThread(() -> {
                 mData.clear();
-                mData.addAll(data);
+                if (null != data && !data.isEmpty()) {
+                    mData.addAll(data);
+                }
                 adapter = new LicenseFileAdapter(this, R.layout.item_license_file, mData);
                 recyclerView.setAdapter(adapter);
             });
