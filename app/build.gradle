@@ -51,7 +51,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation 'org.jetbrains.kotlin:kotlin-reflect:1.4.10'
-    implementation 'com.alibaba:fastjson:1.1.72.android'
+    implementation 'com.google.code.gson:gson:2.8.7'
     implementation 'org.web3j:core:4.6.0-android'
     implementation "com.github.yjfnypeu:EasyThread:0.5.0"
     implementation 'com.zhy:base-rvadapter:3.0.3'

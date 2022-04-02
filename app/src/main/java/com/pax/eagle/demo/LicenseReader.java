@@ -29,7 +29,7 @@ public class LicenseReader {
     static private String getLicenseContent(String name) {
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("http://119.45.254.226:8888/file/" + name)
+                .url("http://47.98.54.147:8888/file/" + name)
                 .build();
 
         try {
