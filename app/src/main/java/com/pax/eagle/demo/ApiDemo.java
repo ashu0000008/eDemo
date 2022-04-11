@@ -12,7 +12,7 @@ import com.pax.eagle.auth.EagleApi;
 public class ApiDemo {
     static void authorize(Activity activity) {
         String productId = LicenseManager.getInstance().getLicenseProductId();
-        IAuth iAuth = EagleApi.getInstance().getAuth(activity);
+        IAuth iAuth = EagleApi.getInstance().createAuth(activity, new SNFetcher(activity.getApplicationContext()));
         iAuth.authorize(productId, new OnAuthListener() {
             @Override
             public void onSuccess(String productId, String deviceId) {
