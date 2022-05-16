@@ -67,4 +67,10 @@ public class ApiDemo {
         String deviceId = eagleApi.getDeviceId();
         Toast.makeText(context, "deviceId:" + deviceId, Toast.LENGTH_LONG).show();
     }
+
+    static void showSDKVersion(Context context) {
+        IAuth eagleApi = EagleApi.getInstance().getAuth(context);
+        String sdkVersion = eagleApi.getVersion();
+        Toast.makeText(context, "SDK Version:" + sdkVersion, Toast.LENGTH_LONG).show();
+    }
 }

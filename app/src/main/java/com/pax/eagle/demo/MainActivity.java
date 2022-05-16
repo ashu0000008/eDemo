@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.tv_select_license).setOnClickListener(v -> {
             LicenseListActivity.start(this);
         });
+
+        findViewById(R.id.tv_sdk_version).setOnClickListener(v -> {
+            ApiDemo.showSDKVersion(this);
+        });
     }
 
     @Override
