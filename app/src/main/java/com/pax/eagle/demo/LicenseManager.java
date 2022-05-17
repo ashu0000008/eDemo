@@ -51,6 +51,10 @@ public class LicenseManager {
     }
 
     private static byte[] getByteArr(byte[] data, int start, int end) {
+        if (start >= data.length || end >= data.length) {
+            return new byte[0];
+        }
+
         byte[] ret = new byte[end - start];
         for (int i = 0; (start + i) < end; i++) {
             ret[i] = data[start + i];
